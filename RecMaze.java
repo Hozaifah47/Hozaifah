@@ -1,6 +1,6 @@
 import java.util.*;
 
-class MazeRec {
+class RecMaze {
     static int[][] ghost;
     static int[][] grid;
     static boolean check = false;
