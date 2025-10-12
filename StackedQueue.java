@@ -23,7 +23,7 @@ public class StackedQueue {
                 }
             }
 
-            if (stack2.top == -1) { // still empty
+            if (stack2.top == -1) {
                 throw new Exception("Queue is empty!");
             }
 
