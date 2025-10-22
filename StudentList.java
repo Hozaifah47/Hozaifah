@@ -66,10 +66,15 @@ public class StudentList {
                 System.out.println("Invalid roll number");
                 return;
             }
+            if (isRepeatRoll(current)) {
+                System.out.println("Invalid Input!");
+                return;
+
+            }
             System.out.println("Enter marks of physics");
             current = current + " Phys " + br.readLine();
 
-            if (!isValidMarks(current)) {
+            if (isValidMarks(current)) {
                 System.out.println("Invalid Input!");
                 return;
             }
@@ -77,7 +82,7 @@ public class StudentList {
             System.out.println("Enter marks of chemistry");
             current = current + " Chem " + br.readLine();
 
-            if (!isValidMarks(current)) {
+            if (isValidMarks(current)) {
                 System.out.println("Invalid Input!");
                 return;
             }
@@ -85,7 +90,7 @@ public class StudentList {
             System.out.println("Enter marks of maths");
             current = current + " Math " + br.readLine();
 
-            if (!isValidMarks(current)) {
+            if (isValidMarks(current)) {
                 System.out.println("Invalid Input!");
             }
 
@@ -133,7 +138,7 @@ public class StudentList {
                     System.out.println("Enter marks of physics:");
                     current = current + " Phys " + br.readLine();
 
-                    if (!isValidMarks(current)) {
+                    if (isValidMarks(current)) {
                         System.out.println("Invalid Input!");
                         return;
                     }
@@ -141,7 +146,7 @@ public class StudentList {
                     System.out.println("Enter marks of chemistry:");
                     current = current + " Chem " + br.readLine();
 
-                    if (!isValidMarks(current)) {
+                    if (isValidMarks(current)) {
                         System.out.println("Invalid Input!");
                         return;
                     }
@@ -149,7 +154,7 @@ public class StudentList {
                     System.out.println("Enter marks of maths:");
                     current = current + " Math " + br.readLine();
 
-                    if (!isValidMarks(current)) {
+                    if (isValidMarks(current)) {
                         System.out.println("Invalid Input!");
                         return;
                     }
@@ -277,10 +282,8 @@ public class StudentList {
                     int posMathSpace = current.indexOf(' ', current.indexOf("Math") + 5);
                     int math = Integer.parseInt(current.substring(current.indexOf("Math") + 5, posMathSpace));
 
-                    double average = (phys + chem + math) / 3.0;
-
                     System.out.println(" Student Record ");
-                    System.out.println(current + " Average " + average);
+                    System.out.println(current);
 
                     found = true;
                     break;
@@ -308,7 +311,7 @@ public class StudentList {
         int posMathSpace = current.indexOf(' ', current.indexOf("Math") + 5);
         int math = Integer.parseInt(current.substring(current.indexOf("Math") + 5, posMathSpace));
 
-        double average = (phys + chem + math) / 3.0;
+        int average = (int) ((phys + chem + math) / 3.0);
 
         return current + " Avg " + average;
     }
@@ -354,7 +357,7 @@ public class StudentList {
 
             System.out.println("  Merit List ");
             for (int i = 0; i < students.length; i++) {
-                System.out.println(students[i]);
+                System.out.println(getAverage(students[i]));
             }
 
         } catch (Exception e) {
@@ -377,15 +380,14 @@ public class StudentList {
             FileReader frMain = new FileReader(fileName);
             BufferedReader brMain = new BufferedReader(frMain);
 
-            int lines = 0;
-            while (brMain.readLine() != null)
-                lines++;
-            brMain.close();
-
-            if (lines == 0) {
+            if (brMain.readLine() == null) {
                 System.out.println("No student records found!");
+                brMain.close();
                 return;
             }
+
+            frMain = new FileReader(fileName);
+            brMain = new BufferedReader(frMain);
 
             System.out.println(" All Student Records ");
             while ((current = brMain.readLine()) != null) {
@@ -429,6 +431,26 @@ public class StudentList {
         }
         return true;
 
+    }
+
+    public boolean isRepeatRoll(String roll) {
+        String current, text;
+        try {
+            FileReader frMain = new FileReader(fileName);
+            BufferedReader brMain = new BufferedReader(frMain);
+
+            while ((current = brMain.readLine()) != null) {
+                text = current.substring(0, 6);
+                if (text.equals(roll)) {
+                    brMain.close();
+                    return true;
+                }
+            }
+            brMain.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return false;
     }
 
 }
