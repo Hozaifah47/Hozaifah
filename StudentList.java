@@ -67,7 +67,7 @@ public class StudentList {
                 return;
             }
             if (isRepeatRoll(current)) {
-                System.out.println("Invalid Input!");
+                System.out.println("Prexisting roll number");
                 return;
 
             }
@@ -273,15 +273,6 @@ public class StudentList {
 
                 if (text.equalsIgnoreCase(roll)) {
 
-                    int posPhysSpace = current.indexOf(' ', current.indexOf("Phys") + 5);
-                    int phys = Integer.parseInt(current.substring(current.indexOf("Phys") + 5, posPhysSpace));
-
-                    int posChemSpace = current.indexOf(' ', current.indexOf("Chem") + 5);
-                    int chem = Integer.parseInt(current.substring(current.indexOf("Chem") + 5, posChemSpace));
-
-                    int posMathSpace = current.indexOf(' ', current.indexOf("Math") + 5);
-                    int math = Integer.parseInt(current.substring(current.indexOf("Math") + 5, posMathSpace));
-
                     System.out.println(" Student Record ");
                     System.out.println(current);
 
@@ -343,8 +334,8 @@ public class StudentList {
 
             for (int i = 0; i < students.length - 1; i++) {
                 for (int j = 0; j < students.length - i - 1; j++) {
-                    double avg1 = extractAverage(students[j]);
-                    double avg2 = extractAverage(students[j + 1]);
+                    int avg1 = extractAverage(students[j]);
+                    int avg2 = extractAverage(students[j + 1]);
 
                     if (avg1 < avg2) {
 
@@ -365,13 +356,13 @@ public class StudentList {
         }
     }
 
-    public double extractAverage(String details) {
+    public int extractAverage(String details) {
         int pos = details.lastIndexOf("Avg ");
         if (pos == -1)
             return 0;
 
         String avgStr = details.substring(pos + 4);
-        return Double.parseDouble(avgStr);
+        return Integer.parseInt(avgStr);
     }
 
     public void displayAll() {
