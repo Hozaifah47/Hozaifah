@@ -74,7 +74,7 @@ public class StudentList {
             System.out.println("Enter marks of physics");
             current = current + " Phys " + br.readLine();
 
-            if (isValidMarks(current)) {
+            if (!isValidMarks(current)) {
                 System.out.println("Invalid Input!");
                 return;
             }
@@ -82,7 +82,7 @@ public class StudentList {
             System.out.println("Enter marks of chemistry");
             current = current + " Chem " + br.readLine();
 
-            if (isValidMarks(current)) {
+            if (!isValidMarks(current)) {
                 System.out.println("Invalid Input!");
                 return;
             }
@@ -90,7 +90,7 @@ public class StudentList {
             System.out.println("Enter marks of maths");
             current = current + " Math " + br.readLine();
 
-            if (isValidMarks(current)) {
+            if (!isValidMarks(current)) {
                 System.out.println("Invalid Input!");
             }
 
@@ -138,7 +138,7 @@ public class StudentList {
                     System.out.println("Enter marks of physics:");
                     current = current + " Phys " + br.readLine();
 
-                    if (isValidMarks(current)) {
+                    if (!isValidMarks(current)) {
                         System.out.println("Invalid Input!");
                         return;
                     }
@@ -146,7 +146,7 @@ public class StudentList {
                     System.out.println("Enter marks of chemistry:");
                     current = current + " Chem " + br.readLine();
 
-                    if (isValidMarks(current)) {
+                    if (!isValidMarks(current)) {
                         System.out.println("Invalid Input!");
                         return;
                     }
@@ -154,7 +154,7 @@ public class StudentList {
                     System.out.println("Enter marks of maths:");
                     current = current + " Math " + br.readLine();
 
-                    if (isValidMarks(current)) {
+                    if (!isValidMarks(current)) {
                         System.out.println("Invalid Input!");
                         return;
                     }
