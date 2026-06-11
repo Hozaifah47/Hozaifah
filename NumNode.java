@@ -18,6 +18,5 @@ public class NumNode {
     Scanner sc = new Scanner(System.in);
     System.out.println("Enter a number");
     num = sc.nextInt();
-    sc.close();
   }
 }
