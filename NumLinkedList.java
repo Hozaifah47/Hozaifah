@@ -109,7 +109,6 @@ public class NumLinkedList {
     Scanner sc = new Scanner(System.in);
     NumLinkedList list = new NumLinkedList();
     int ch;
-    // NumNode ob = new NumNode();
 
     try {
       do {
@@ -117,9 +116,9 @@ public class NumLinkedList {
         System.out.println("Enter 1 to add a node");
         System.out.println("Enter 2 to display list");
         System.out.println("Enter 3 to reverse list");
-        System.out.println("Enter 4 find mid index");
-        System.out.println("Enter 5 find mid node");
-        System.out.println("Enter 6 find max");
+        System.out.println("Enter 4 to find mid index");
+        System.out.println("Enter 5 to find mid node");
+        System.out.println("Enter 6 tofind max");
         ch = sc.nextInt();
         switch (ch) {
           case 0:
