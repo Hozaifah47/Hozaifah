@@ -19,7 +19,7 @@ class BookLinkedList {
     Scanner sc = new Scanner(System.in);
 
     BookLinkedList list = new BookLinkedList();
-    BookNode helper = new BookNode();
+    BookNode ob = new BookNode();
 
     int ch;
 
@@ -36,14 +36,14 @@ class BookLinkedList {
         case 1:
           BookNode b1 = new BookNode();
           b1.accept();
-          list.start = helper.addBook(list.start, b1);
+          list.start = ob.addBook(list.start, b1);
           System.out.println("Book Added");
           break;
 
         case 2:
           BookNode b2 = new BookNode();
           b2.accept();
-          list.start = helper.addBookAtEnd(list.start, b2);
+          list.start = ob.addBookAtEnd(list.start, b2);
           System.out.println("Book Added");
           break;
 
