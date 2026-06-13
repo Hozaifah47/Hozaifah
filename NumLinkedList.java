@@ -23,15 +23,6 @@ public class NumLinkedList {
     return max;
   }
 
-  void insertAtBeginning(NumNode node) {
-    if (start == null) {
-      start = node;
-      return;
-    }
-    node.next = start;
-    start = node;
-  }
-
   void insertAtEnd(NumNode node) {
     if (start == null) {
       start = node;
@@ -93,6 +84,32 @@ public class NumLinkedList {
     return reverse;
   }
 
+  void insertAtBeginning(NumNode node) {
+    if (start == null) {
+      start = node;
+      return;
+    }
+    node.next = start;
+    start = node;
+  }
+
+  NumLinkedList reverseWIAB() throws Exception {
+    if (start == null) {
+      throw new Exception("The list is empty");
+    }
+    NumLinkedList reverse = new NumLinkedList();
+    NumNode temp = start;
+    while (temp != null) {
+      NumNode node = new NumNode();
+      node.num = temp.num;
+      node.next = reverse.start;
+      reverse.start = node;
+      temp = temp.next;
+    }
+
+    return reverse;
+  }
+
   void display() throws Exception {
     if (start == null) {
       throw new Exception("the list is empty");
@@ -134,7 +151,7 @@ public class NumLinkedList {
             list.display();
             break;
           case 3:
-            list = list.reverse();
+            list = list.reverseWIAB();
             System.out.println("List Reversed");
             break;
           case 4:
