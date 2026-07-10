@@ -70,8 +70,12 @@ class CircularQueue {
       }
     }
     for (int i = 0; i < size; i++) {
-      System.out.println("| " + visual[i] + " |");
+      System.out.print("| " + visual[i] + " ");
+      if (i == size - 1) {
+        System.out.print("|");
+      }
     }
+    System.out.println();
   }
 
   public static void main(String[] args) {
