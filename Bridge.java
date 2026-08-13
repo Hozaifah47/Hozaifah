@@ -73,7 +73,7 @@ public class Bridge {
     String steps[];
     Bridge ob = new Bridge();
     Scanner sc = new Scanner(System.in);
-    System.out.println("Enter the number of people!");
+    System.out.println("Enter the number of people");
     size = sc.nextInt();
     if (size < 1) {
       System.out.println("Invalid Input!");
@@ -82,7 +82,7 @@ public class Bridge {
     int time[] = new int[size];
     String name[] = new String[size];
     for (i = 0; i < size; i++) {
-      System.out.println("Enter a name!");
+      System.out.println("Enter a name");
       name[i] = sc.next();
       System.out.println("Enter the time taken to cross the bridge in minutes");
       time[i] = sc.nextInt();
