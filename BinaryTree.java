@@ -12,6 +12,8 @@ public class BinaryTree {
     preorder(root.right);
   }
 
+  void preorderN(BinaryNode root) {}
+
   void inorder(BinaryNode root) { // l rt r
     if (root == null) {
       return;
